@@ -1,11 +1,11 @@
 <template>
     <aside class="right-block">
-        <div class="toilet">
+        <div class="toilet" @click="click">
             <div class="toilet-status"> 
-                Туалет: <span> {{ status }} </span>
+                Туалет: <span :class="{_busy: status === 'занято'}"> {{ status }} </span>
             </div>
         </div>
-        <section v-if="$route.name == 'home'" class="container-block right-block-news">
+        <section class="container-block right-block-news">
             <div class="container-head">
                 <h2>Новости</h2>
                 <router-link 
@@ -38,7 +38,7 @@ export default {
     name: 'toilet-block',
     data() {
         return {
-            status: 'Занято',
+            status: 'свободно',
         }
     },
     computed: {
@@ -50,22 +50,13 @@ export default {
     watch: {
     },
     methods: {
-        // settoilet() {
-        //     if (this.status) {
-        //         axios.get(`https://api.opentoiletmap.org/data/2.5/toilet?&units=metric&q=${this.status}&appid=790a96bd8bb9d8c93506ff43bb1b5b73`)
-        //             .then(res => {
-        //                 this.icon = `https://opentoiletmap.org/img/wn/${(res.data.toilet[0].icon)}@2x.png`
-        //                 this.temp = Math.round(res.data.main.temp)
-        //                 this.edit = false
-        //             })    
-        //             .catch(res => {
-        //                 this.error = res.response.data.message
-        //             })             
-        //     } 
-        // }
+        click() {
+            if (this.status === 'свободно') {
+                this.status = 'занято'
+            }
+        }
     },
     created() {
-        // this.settoilet()
     }
 }
 </script>
@@ -88,6 +79,14 @@ export default {
 
     .toilet
         margin-bottom: 20px
+        width: 100%
+        cursor: pointer
+        opacity: 0.8
+        transition: .3s
+
+        &:hover 
+            opacity: 1
+            
         &-status 
             grid-area: area-status
             margin-bottom: auto
@@ -100,8 +99,11 @@ export default {
                 font-size: 16px
                 color: white    
                 padding: 5px 15px
-                background: red
+                background: green
                 border-radius: 5px
+                margin-left: auto
+                &._busy 
+                    background: red
     
     &-news 
         gap: 10px !important

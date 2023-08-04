@@ -4,7 +4,7 @@
       <main class="main">
           <side-menu></side-menu>
           <router-view/>
-          <right-block></right-block>
+          <right-block v-if="$route.name === 'home'"></right-block>
           <modal-cmp/>
           <notification-cmp/>
       </main>
@@ -103,11 +103,7 @@ textarea
   flex-direction: column
   gap: 20px
   padding: 20px
-  background: #F9F8FF
-  border-right: 1px solid #E6E4F0
-  border-left: 1px solid #E6E4F0
   &-head
-      background: #F9F8FF
       position: sticky
       top: 0
       padding: 10px 0
@@ -127,21 +123,12 @@ textarea
   gap: 16px
 
 .item
-  transition: .3s
-  cursor: pointer
   height: max-content
 
   &.fill
     width: 100%
     height: auto
     padding: 10px
-
-  &:hover
-      background: rgba(242, 241, 243, 0.7) !important
-
-      &:before
-          background: rgba(242, 241, 243, 0.7) !important
-          border-bottom-color: rgba(242, 241, 243, 0.7) !important
 
   &-name
       white-space: nowrap

@@ -8,6 +8,9 @@
         <span class="news-name item-name">
             {{ item.name }}
         </span>
+        <span class="news-desc item-desc">
+            {{ item.desc }}
+        </span>
         <div class="news-date item-date">
             {{ item.date }}
         </div>
@@ -49,13 +52,12 @@ export default {
 .news
     padding: 22px
     width: calc((100% - 22px) / 2)
-    height: 139px
     border-radius: 10px
     border: 1px solid #E6E4F0
     background: #FFF 
     position: relative
     display: grid
-    grid-template-areas: 'area-icon area-name area-name' 'area-date area-date area-buttons'
+    grid-template-areas: 'area-icon area-name area-name' 'area-desc area-desc area-desc' '. . area-date'
     grid-template-columns: 28px 1fr 1fr
     gap: 7px
     line-height: 28px
@@ -80,6 +82,10 @@ export default {
     &-name 
         grid-area: area-name
 
+    &-desc 
+        grid-area: area-desc
+
     &-date 
         grid-area: area-date
+        margin-left: auto
 </style>

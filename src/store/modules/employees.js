@@ -16,7 +16,7 @@ export default {
             {
                 id: 3,
                 name: 'Захарова Ольга',
-                status: ['удаленка']
+                status: ['удаленка', 'перерыв']
             },
             {
                 id: 4,
@@ -28,6 +28,13 @@ export default {
     getters: {
         employees(state) {
             return state.employees;
+        },
+        getEmployeesByName: (state) => (payload) => {
+            if(state.employees) {
+                return state.employees.filter(x => x.name.toLowerCase().includes(payload.toLowerCase()))
+            } else {
+                return null
+            }
         },
     },
     mutations: {
