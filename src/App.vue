@@ -5,14 +5,12 @@
           <side-menu></side-menu>
           <router-view/>
           <right-block v-if="$route.name === 'home'"></right-block>
-          <modal-cmp/>
           <notification-cmp/>
       </main>
   </div>
 </template>
 
 <script>
-import ModalCmp from './components/modals/ModalCmp.vue';
 import SideMenu from './components/SideMenu.vue';
 import NotificationCmp from './components/NotificationCmp.vue';
 import HeaderCmp from "@/components/HeaderCmp.vue";
@@ -24,10 +22,9 @@ export default {
   },
   components: {
     HeaderCmp,
-      ModalCmp,
-      SideMenu,
-      rightBlock,
-      NotificationCmp
+    SideMenu,
+    rightBlock,
+    NotificationCmp
   },
 }
 

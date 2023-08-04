@@ -11,14 +11,14 @@
 
 <script>
     import { mapGetters, mapMutations } from 'vuex';
-    import ModalTask from '@/components/modals/ModalTask.vue';
+    import ModalConfirm from '@/components/modals/ModalConfirm.vue';
 
     export default {
         data() {
             return {}
         },
         components: {
-            ModalTask,
+            ModalConfirm,
         },
         computed: {
             ...mapGetters('modal', ['modalComponent', 'modalProps']),

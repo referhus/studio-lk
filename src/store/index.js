@@ -1,4 +1,3 @@
-import finance from './modules/finance';
 import news from './modules/news';
 import employees from './modules/employees';
 import modal from './modules/modal';
@@ -22,7 +21,6 @@ export default createStore({
     actions: {
     },
     modules: {
-        finance,
         news,
         employees,
         modal,
