@@ -1,5 +1,6 @@
 <template>
-      <v-container class="fill-height d-flex justify-end">
+      <v-container class="d-flex justify-space-between align-center">
+        <img height="30" src="logo-t.svg">
         <v-menu>
           <template v-slot:activator="{ props }">
             <a v-bind="props">
