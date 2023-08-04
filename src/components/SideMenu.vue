@@ -24,20 +24,20 @@
                         name: 'Главная',
                     },
                     {
-                        link: '/news',
-                        name: 'Новости',
-                    },
-                    {
                         link: '/finance',
                         name: 'Финансы',
                     },
                     {
-                        link: '/shop',
-                        name: 'Магазин',
-                    },
-                    {
                         link: '/vacation',
                         name: 'График отпусков',
+                    },
+                    {
+                        link: '/news',
+                        name: 'Новости',
+                    },
+                    {
+                        link: '/shop',
+                        name: 'Магазин',
                     },
                 ]
             }

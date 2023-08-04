@@ -4,7 +4,7 @@
       <main class="main">
           <side-menu></side-menu>
           <router-view/>
-          <right-block></right-block>
+          <right-block v-if="$route.name === 'home'"></right-block>
           <modal-cmp/>
           <notification-cmp/>
       </main>
