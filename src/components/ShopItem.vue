@@ -1,9 +1,13 @@
 <script>
 export default {
-  props: ['item']
+  props: ['item'],
+  data () {
+    return {
+      dialog: false,
+    }
+  }
 }
 </script>
-
 <template>
   <v-card class="d-flex flex-column pa-5 justify-space-between align-center" width="200px" height="300px">
     <h2 class="mb-5">
@@ -11,10 +15,33 @@ export default {
     </h2>
     <img class="mb-5" src="logo-t.svg">
     <span>Цена: <b>{{ item.cost }}</b></span>
-    <button
-        class="bg-blue-lighten-4 :hover-bg-red pa-3 rounded :hover">
-      Приобрести
-    </button>
+    <v-dialog
+        v-model="dialog"
+        width="auto"
+    >
+      <template v-slot:activator="{ props }">
+        <button
+            v-bind="props"
+            class="bg-blue-lighten-4 :hover-bg-red pa-3 rounded">
+          Приобрести
+        </button>
+      </template>
+
+      <v-card>
+        <v-card-text>
+          Вы уверены, что хотите приобрести данный товар за {{ item.cost }} ?
+        </v-card-text>
+        <v-card-actions class="d-flex justify-space-around">
+          <v-btn @click="dialog = false" color="danger">
+            <span class="text-green-darken-1">Да</span>
+          </v-btn>
+          <v-btn @click="dialog = false" color="danger" class="text-green-darken-1">
+            <span class="text-red-darken-1">Передумал</span>
+            </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-card>
 </template>
 

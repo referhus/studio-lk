@@ -27,27 +27,27 @@ export default {
     items: [
       {
         title: 'Стикерпак',
-        cost: '300 T'
+        cost: '300 T-Coin'
       },
       {
         title: 'Футболка',
-        cost: '900 T'
+        cost: '900 T-Coin'
       },
       {
         title: 'Выходной',
-        cost: '3000 T'
+        cost: '3000 T-Coin'
       },
       {
         title: 'Выходной',
-        cost: '3000 T'
+        cost: '3000 T-Coin'
       },
       {
         title: 'Выходной',
-        cost: '3000 T'
+        cost: '3000 T-Coin'
       },
       {
         title: 'Выходной',
-        cost: '3000 T'
+        cost: '3000 T-Coin'
       },
     ],
   }),
