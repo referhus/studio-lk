@@ -1,20 +1,31 @@
 <template>
 	<section class="container">
-		<div class="container-head">
-			<h1>Новости</h1>
-			<button-cmp 
-				icon="add"
-				border
-				@event="handlerAddTask"
-			></button-cmp>
-		</div>
+		<v-card>
+			<div class="list">
+				<div class="list-text">
+				<div class="list-month">
+					Месяц
+				</div>
+				<span class="list-number">Расчетный лист №245</span>
+			</div>
+			<div class="list-buttons">
+				<button-cmp 
+					border
+					@event="handlerAddTask"
+					text="Подтвердить"
+				></button-cmp>
+				<button-cmp 
+					border
+					@event="handlerAddTask"
+					text="Задать вопрос"
+				></button-cmp>
+			</div>
+			</div>
+		</v-card>
 		<div 
 			class="finance-cards cards" 
 		>
 			<finance-item 
-				v-for="task in finance" 
-				:key="task.id"
-				:item="task"
 			></finance-item>
 		</div>
 	</section>
@@ -58,5 +69,12 @@ export default {
 
 
 <style lang="sass">
+.list 
+	padding: 5px
+	display: flex
+	justify-content: space-between
 
+	&-buttons 
+		display: flex
+		gap: 10px
 </style>

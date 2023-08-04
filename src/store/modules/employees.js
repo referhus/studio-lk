@@ -29,6 +29,13 @@ export default {
         employees(state) {
             return state.employees;
         },
+        getEmployeesByName: (state) => (payload) => {
+            if(state.employees) {
+                return state.employees.filter(x => x.name.toLowerCase().includes(payload.toLowerCase()))
+            } else {
+                return null
+            }
+        },
     },
     mutations: {
         /* eslint no-param-reassign: 'off' */

@@ -6,7 +6,9 @@
               <div class="d-flex align-center">
                 <span class="mr-2">Полховская Анна</span>
                 <v-badge content="990 T-Coin" color="warning">
-                  <v-avatar image="avatar.png"></v-avatar>
+                  <v-avatar size="x-large">
+                    <v-icon icon="mdi-account-circle" size="x-large"></v-icon>
+                  </v-avatar>
                 </v-badge>
               </div>
             </a>
