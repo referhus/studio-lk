@@ -78,9 +78,9 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 .list
-	padding: 5px
+	padding: 20px
 	display: flex
 	justify-content: space-between
 
