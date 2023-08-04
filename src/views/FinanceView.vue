@@ -9,60 +9,80 @@
 				<span class="list-number">Расчетный лист №245</span>
 			</div>
 			<div class="list-buttons">
-				<button-cmp 
-					border
-					@event="handlerAddTask"
-					text="Подтвердить"
-				></button-cmp>
-				<button-cmp 
-					border
-					@event="handlerAddTask"
-					text="Задать вопрос"
-				></button-cmp>
+				<!-- кнопки -->
 			</div>
 			</div>
 		</v-card>
-		<div 
-			class="finance-cards cards" 
-		>
-			<finance-item 
-			></finance-item>
+		<div class="list-month">
+			АРХИВ
 		</div>
+		<v-card width="100%">
+			<v-list>
+				<template 
+					v-for="(item, index) in items"
+				>
+					<v-subheader
+						v-if="item.header"
+						:key="item.header"
+					>{{ item.header }}</v-subheader>
+
+					<v-divider
+						v-else-if="item.divider"
+						:key="index"
+						:inset="item.inset"
+					></v-divider>
+
+					<v-list-item v-else :key="item.title">
+						<v-list-item-content>
+						<v-list-item-title> {{ item.title }}</v-list-item-title>
+						<v-list-item-subtitle> {{ item.subtitle }}</v-list-item-subtitle>
+						</v-list-item-content>
+					</v-list-item>
+				</template>
+			</v-list>
+		</v-card>
 	</section>
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations } from 'vuex';
-import FinanceItem from '@/components/FinanceItem';
-import ButtonCmp from '@/components/ButtonCmp';
 
 export default {
 	name: 'financeView',
 	data() {
 		return {
+			items: [
+				{
+					title: 'Июль',
+					subtitle: `Расчетный лист №244`,
+				},
+				{ divider: true, inset: true },
+				{
+					title: 'Июнь',
+					subtitle: `Расчетный лист №243`,
+				},
+				{ divider: true, inset: true },
+				{
+					title: 'Май',
+					subtitle: `Расчетный лист №242`,
+				},
+				{ divider: true, inset: true },
+				{
+					title: 'Апрель',
+					subtitle: `Расчетный лист №241`,
+				},
+				{ divider: true, inset: true },
+				{
+					title: 'Март',
+					subtitle: `Расчетный лист №240`,
+				},
+			]
 		}
 	},
 	components: {
-		FinanceItem,
-		ButtonCmp
 	},
 	computed: {
-		...mapState('finance', ['finance'])
 	},
 	methods: {
-		...mapActions('finance', ['getfinance']),
-		...mapMutations('finance', ['addTask']),
-		...mapMutations('modal', ['openModal']),
-
-		handlerAddTask() {
-			this.openModal({
-				newState: 'ModalTask',
-				props: {
-					title: 'создать',
-					type: 'add',
-				},
-			})
-		}
 	},
 }
 </script>

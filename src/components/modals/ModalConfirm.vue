@@ -3,60 +3,23 @@
         <h2 class="title add-block__title">
             {{ props.title }}
         </h2>
-        <input 
-            v-model="task.name"
-            type="text" 
-            placeholder="название"
-            :disabled="props.type == 'view'"
-            autofocus
-        >
-        <textarea
-            v-model="task.desc"
-            placeholder="описание"
-            :class="{ 'not-valid': !isValid }"
-            class="add-block__desc"
-            :disabled="props.type == 'view'"
-            maxlength="200"
-        />
-        <span 
-            v-if="props.type !== 'view'" 
-            class="add-block__desc-count"> {{ task.desc.length }}/200 символов </span>
-
-        <dropdown-search
-            v-if="props.type !== 'view'"
-            :item="results"
-            placeholder="поиск по папкам"
-            :id="'folders'"
-            dropdown-list
-            @setElem="setElem"
-            @search="search"
-        ></dropdown-search>
-
-        <div class="task-tags">
-            <tag-item 
-                v-for="(item, key) in task.folders" 
-                :key="`folder-${item.id}`"
-                :item="item"
-                :id="key"
-                :delete-icon="props.type !== 'view'"
-                @delete-item="deleteItem"
-            ></tag-item>
-        </div>
 
         <button-cmp
-            v-if="props.type !== 'view'" 
             class="add-block__btn"
-            text="отправить"
+            text="подтвердить"
             border
             @event="handlerBtn"
+        ></button-cmp>
+        <button-cmp
+            class="add-block__btn"
+            text="отмена"
+            border
         ></button-cmp>
     </form>
 </template>
 
 <script>
 import ButtonCmp from '@/components/ButtonCmp';
-import DropdownSearch from '@/components/DropdownSearch';
-import TagItem from '@/components/TagItem';
 import { mapState, mapMutations, mapGetters } from "vuex";
 
 export default {
@@ -64,8 +27,6 @@ export default {
     props: ['props'],
     components: {
         ButtonCmp,
-        DropdownSearch,
-        TagItem
     },
     data() {
         return {
