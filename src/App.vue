@@ -150,7 +150,10 @@ textarea
       opacity: 1
 
 
-thead, tbody
+table
   width: 100%
+  border-collapse: collapse
+  td, th
+    padding: 5px 10px
 
 </style>

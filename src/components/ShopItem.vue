@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <template>
-  <v-card class="d-flex flex-column pa-5 justify-space-between align-center" width="200px" height="300px">
+  <v-card class="d-flex flex-column pa-5 justify-space-between align-center" style="width: calc((100% - 16px * 3) / 4)" height="300px">
     <h2 class="mb-5">
       {{ item.title }}
     </h2>
