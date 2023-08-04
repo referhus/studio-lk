@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <header-cmp></header-cmp>
-      <main class="main">
+      <main class="main" :class="{_fill: $route.name !== 'home'}">
           <side-menu></side-menu>
           <router-view/>
           <right-block v-if="$route.name === 'home'"></right-block>
@@ -93,6 +93,9 @@ textarea
       padding: 0 16px
       grid-template-columns: 85px 1fr 170px
 
+  &._fill
+    grid-template-areas: 'area-menu area-content area-content'
+
 .container
   grid-area: area-content
   width: 100%
@@ -101,6 +104,7 @@ textarea
   gap: 20px
   padding: 20px
   &-head
+      background: white
       position: sticky
       top: 0
       padding: 10px 0
@@ -144,5 +148,9 @@ textarea
   transition: .3s
   &:hover
       opacity: 1
+
+
+thead, tbody
+  width: 100%
 
 </style>

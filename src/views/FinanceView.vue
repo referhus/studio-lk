@@ -32,9 +32,16 @@
 						:inset="item.inset"
 					></v-divider>
 
-					<v-list-item v-else :key="item.title">
+					<v-list-item 
+						v-else 
+						:key="item.title"
+					>
 						<v-list-item-content>
-						<v-list-item-title> {{ item.title }}</v-list-item-title>
+						<v-list-item-title> 
+							<a href="/assets/test.pdf" target="_blank">
+								{{ item.title }}
+							</a>
+						</v-list-item-title>
 						<v-list-item-subtitle> {{ item.subtitle }}</v-list-item-subtitle>
 						</v-list-item-content>
 					</v-list-item>

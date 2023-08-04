@@ -21,7 +21,6 @@
                 v-for="item in news.slice(0, 5)" 
                 :key="`news-${item.id}`"
                 :item="item"
-                fill
             ></news-item>
         </section>
     </aside>
@@ -30,9 +29,6 @@
 <script>
 import { mapState } from 'vuex';
 import newsItem from '@/components/newsItem';
-
-// import axios from "axios";
-// import ButtonCmp from './ButtonCmp.vue';
 
 export default {
     name: 'toilet-block',

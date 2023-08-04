@@ -1,5 +1,5 @@
 <template>
-    <div class="news item" :class="{fill: fill}">
+    <div class="news item">
         <div class="news-icon">
             <span class="material-icons">
                 description
@@ -26,9 +26,6 @@ export default {
         item: {
             type: Object
         },
-        fill: {
-            type: Boolean
-        }
     },
     data() {
         return {
@@ -51,7 +48,7 @@ export default {
 @import "@/assets/styles/params"
 .news
     padding: 22px
-    width: calc((100% - 22px) / 2)
+    width: 100%
     border-radius: 10px
     border: 1px solid #E6E4F0
     background: #FFF 
@@ -62,9 +59,6 @@ export default {
     gap: 7px
     line-height: 28px
     align-content: space-between
-
-    @include _1024
-        width: 100%
 
     &-icon 
         grid-area: area-icon
