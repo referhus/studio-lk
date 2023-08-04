@@ -4,7 +4,7 @@
       <main class="main">
           <side-menu></side-menu>
           <router-view/>
-          <toilet-block></toilet-block>
+          <right-block></right-block>
           <modal-cmp/>
           <notification-cmp/>
       </main>
@@ -15,8 +15,8 @@
 import ModalCmp from './components/modals/ModalCmp.vue';
 import SideMenu from './components/SideMenu.vue';
 import NotificationCmp from './components/NotificationCmp.vue';
-import toiletBlock from './components/toiletBlock.vue';
 import HeaderCmp from "@/components/HeaderCmp.vue";
+import rightBlock from './components/rightBlock.vue';
 export default {
   data() {
       return {
@@ -26,7 +26,7 @@ export default {
     HeaderCmp,
       ModalCmp,
       SideMenu,
-      toiletBlock,
+      rightBlock,
       NotificationCmp
   },
 }
@@ -130,6 +130,11 @@ textarea
   transition: .3s
   cursor: pointer
   height: max-content
+
+  &.fill
+    width: 100%
+    height: auto
+    padding: 10px
 
   &:hover
       background: rgba(242, 241, 243, 0.7) !important

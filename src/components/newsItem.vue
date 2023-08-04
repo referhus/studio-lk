@@ -1,31 +1,21 @@
 <template>
-    <div class="folder item">
-        <div class="folder-icon" :style="{background: item.color}">
-            <div class="folder-icon-wrap"></div>
+    <div class="news item" :class="{fill: fill}">
+        <div class="news-icon">
+            <span class="material-icons">
+                description
+            </span>
         </div>
-        <span class="folder-name item-name">
+        <span class="news-name item-name">
             {{ item.name }}
-            ({{ count }})
         </span>
-        <div class="folder-date item-date">
+        <div class="news-date item-date">
             {{ item.date }}
-        </div>
-        <div 
-            class="folder-buttons" 
-            v-if="!noActions"
-        >
-            <action-list 
-                :list="actionList"
-                @handleItem="handleItem"
-            >
-            </action-list>
         </div>
     </div>
 </template>
 
 <script>
-import ActionList from '@/components/ActionList';
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     name: 'news-item',
@@ -33,59 +23,20 @@ export default {
         item: {
             type: Object
         },
-        noActions: {
-            type: Boolean,
-            default: false
+        fill: {
+            type: Boolean
         }
     },
     data() {
         return {
-            actionList: [
-                {
-                    icon: 'delete',
-                    action: 'delete'
-                },
-            ]
         }
     },
     components: {
-        ActionList,
     },
     computed: {
-        ...mapState('notification', ['notifications']),
         ...mapState('finance', ['finance']),
-        count() {
-            let count = 0
-            this.finance.map(item => {
-                item.folders.map(el => {
-                   (el.id == this.item.id) && count++
-                })
-            })
-            return count
-        }
     },
     methods: {
-        ...mapMutations('finance', ['setFoldersInTask']),
-        ...mapMutations('folders', ['setFolder']),
-        ...mapMutations('notification', ['setNotification', 'closeNotification']),
-
-        deleteFolder() {
-            this.setFolder({id: this.item.id})
-            this.setFoldersInTask(this.item.id)
-            this.setNotification({
-                type: 'error',
-                text: 'Папка успешно удалена!'
-            })
-            setTimeout(() => {
-                this.closeNotification(this.notifications.length)
-            }, 4000)
-        },
-
-        handleItem(item) {
-            if (item.action === 'delete') {
-                this.deleteFolder();
-            } 
-        },
     },
     mounted() {
         this.count
@@ -95,11 +46,11 @@ export default {
 
 <style scoped lang="sass">
 @import "@/assets/styles/params"
-.folder
+.news
     padding: 22px
     width: calc((100% - 22px) / 2)
     height: 139px
-    border-radius: 0px 10px 10px 10px
+    border-radius: 10px
     border: 1px solid #E6E4F0
     background: #FFF 
     position: relative
@@ -107,26 +58,11 @@ export default {
     grid-template-areas: 'area-icon area-name area-name' 'area-date area-date area-buttons'
     grid-template-columns: 28px 1fr 1fr
     gap: 7px
-    margin-top: 20px
     line-height: 28px
     align-content: space-between
 
     @include _1024
         width: 100%
-
-    &:before 
-        position: absolute
-        content: ''
-        width: 45%
-        height: 20px
-        border: 1px solid #E6E4F0
-        border-bottom-color: #fff
-        border-radius: 10px 10px 0 0
-        background: #fff
-        transform: perspective(70px) rotateX(40deg)
-        top: -20px
-        left: 5px
-        transition: .3s
 
     &-icon 
         grid-area: area-icon
@@ -146,8 +82,4 @@ export default {
 
     &-date 
         grid-area: area-date
-    
-    &-buttons 
-        grid-area: area-buttons
-        margin-left: auto
 </style>

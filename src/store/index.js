@@ -1,5 +1,6 @@
 import finance from './modules/finance';
 import news from './modules/news';
+import employees from './modules/employees';
 import modal from './modules/modal';
 import notification from './modules/notification';
 // import createPersistedState from 'vuex-persistedstate';
@@ -23,6 +24,7 @@ export default createStore({
     modules: {
         finance,
         news,
+        employees,
         modal,
         notification
     },

@@ -1,41 +1,31 @@
-import { dateFormat } from "@/utils/dateFormat";
 
 export default {
     namespaced: true,
     state: {
-        news: [],
+        news: [
+            {
+                id: 1,
+                name: 'Новость 1',
+                date: '01.06.2023'
+            },            
+            {
+                id: 2,
+                name: 'Новость 2',
+                date: '06.06.2023'
+            },            
+            {
+                id: 1,
+                name: 'Новость 3',
+                date: '10.06.2023'
+            },
+        ],
     },
     getters: {
         news(state) {
             return state.news;
         },
-        getnewsByName: (state) => (payload) => {
-            if(state.news) {
-                return state.news.filter(x => x.name.includes(payload))
-            } else {
-                return null
-            }
-        },
     },
     mutations: {
         /* eslint no-param-reassign: 'off' */
-        setnews(state, data) {
-            state.news = data;
-        },
-        addFolder(state, data) {
-            state.news.push({
-                id: state.news.length + 1,
-                name: data.name,
-                color: data.color ? data.color : '#000000',
-                date: dateFormat(),
-                isDone: false
-            })
-        },
-        setFolder(state, data) {
-            const index = state.news.map(el => el.id).indexOf(data.id);
-            if (index > -1) {
-                !data.name ? state.news.splice(index, 1) : state.news.splice(index, 1, data)
-            } 
-        },
     },
 };
