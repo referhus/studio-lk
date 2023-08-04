@@ -28,7 +28,7 @@ import ActionList from '@/components/ActionList';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-    name: 'folder-item',
+    name: 'news-item',
     props: {
         item: {
             type: Object
@@ -53,10 +53,10 @@ export default {
     },
     computed: {
         ...mapState('notification', ['notifications']),
-        ...mapState('tasks', ['tasks']),
+        ...mapState('finance', ['finance']),
         count() {
             let count = 0
-            this.tasks.map(item => {
+            this.finance.map(item => {
                 item.folders.map(el => {
                    (el.id == this.item.id) && count++
                 })
@@ -65,7 +65,7 @@ export default {
         }
     },
     methods: {
-        ...mapMutations('tasks', ['setFoldersInTask']),
+        ...mapMutations('finance', ['setFoldersInTask']),
         ...mapMutations('folders', ['setFolder']),
         ...mapMutations('notification', ['setNotification', 'closeNotification']),
 

@@ -56,7 +56,7 @@ import TagItem from '@/components/TagItem';
 // import ButtonCmp from '@/components/ButtonCmp';
 
 export default {
-    name: 'TaskItem',
+    name: 'FinanceItem',
     props: {
         item: Object,
         noActions: {
@@ -87,7 +87,7 @@ export default {
         ...mapState('notification', ['notifications']),
     },
     methods: {
-        ...mapMutations('tasks', ['setTask', 'setDoneTask']),
+        ...mapMutations('finance', ['setTask', 'setDoneTask']),
         ...mapMutations('modal', ['openModal']),
         ...mapMutations('notification', ['setNotification', 'closeNotification']),
         deleteTask() {

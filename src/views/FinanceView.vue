@@ -9,38 +9,38 @@
 			></button-cmp>
 		</div>
 		<div 
-			class="tasks-cards cards" 
+			class="finance-cards cards" 
 		>
-			<task-item 
-				v-for="task in tasks" 
+			<finance-item 
+				v-for="task in finance" 
 				:key="task.id"
 				:item="task"
-			></task-item>
+			></finance-item>
 		</div>
 	</section>
 </template>
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
-import TaskItem from '@/components/TaskItem';
+import FinanceItem from '@/components/FinanceItem';
 import ButtonCmp from '@/components/ButtonCmp';
 
 export default {
-	name: 'TasksView',
+	name: 'financeView',
 	data() {
 		return {
 		}
 	},
 	components: {
-		TaskItem,
+		FinanceItem,
 		ButtonCmp
 	},
 	computed: {
-		...mapState('tasks', ['tasks'])
+		...mapState('finance', ['finance'])
 	},
 	methods: {
-		...mapActions('tasks', ['getTasks']),
-		...mapMutations('tasks', ['addTask']),
+		...mapActions('finance', ['getfinance']),
+		...mapMutations('finance', ['addTask']),
 		...mapMutations('modal', ['openModal']),
 
 		handlerAddTask() {

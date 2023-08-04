@@ -3,15 +3,15 @@ import { dateFormat } from "@/utils/dateFormat";
 export default {
     namespaced: true,
     state: {
-        folders: [],
+        news: [],
     },
     getters: {
-        folders(state) {
-            return state.folders;
+        news(state) {
+            return state.news;
         },
-        getFoldersByName: (state) => (payload) => {
-            if(state.folders) {
-                return state.folders.filter(x => x.name.includes(payload))
+        getnewsByName: (state) => (payload) => {
+            if(state.news) {
+                return state.news.filter(x => x.name.includes(payload))
             } else {
                 return null
             }
@@ -19,12 +19,12 @@ export default {
     },
     mutations: {
         /* eslint no-param-reassign: 'off' */
-        setFolders(state, data) {
-            state.folders = data;
+        setnews(state, data) {
+            state.news = data;
         },
         addFolder(state, data) {
-            state.folders.push({
-                id: state.folders.length + 1,
+            state.news.push({
+                id: state.news.length + 1,
                 name: data.name,
                 color: data.color ? data.color : '#000000',
                 date: dateFormat(),
@@ -32,9 +32,9 @@ export default {
             })
         },
         setFolder(state, data) {
-            const index = state.folders.map(el => el.id).indexOf(data.id);
+            const index = state.news.map(el => el.id).indexOf(data.id);
             if (index > -1) {
-                !data.name ? state.folders.splice(index, 1) : state.folders.splice(index, 1, data)
+                !data.name ? state.news.splice(index, 1) : state.news.splice(index, 1, data)
             } 
         },
     },

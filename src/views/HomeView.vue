@@ -12,12 +12,12 @@
             </div>
             <div class="cards">
                 <div class="cards">
-                    <folder-item 
+                    <news-item 
                         v-for="item in news.slice(0, 4)" 
                         :key="`new-${item.id}`"
                         :item="item"
                         no-actions
-                    ></folder-item>
+                    ></news-item>
                 </div>
             </div>
         </section>
@@ -31,12 +31,12 @@
                     Смотреть все
                 </router-link>
             </div>
-            <task-item 
-                v-for="task in tasks.slice(0, 4)" 
+            <finance-item 
+                v-for="task in finance.slice(0, 4)" 
                 :key="`task-${task.id}`"
                 :item="task"
                 no-actions
-            ></task-item>
+            ></finance-item>
 
         </section>
     </div>
@@ -44,17 +44,17 @@
 
 <script>
 import { mapState } from 'vuex';
-import TaskItem from '@/components/TaskItem';
-import FolderItem from '@/components/FolderItem';
+import FinanceItem from '@/components/FinanceItem';
+import newsItem from '@/components/newsItem';
 
 export default {
     name: 'HomeView',
 	components: {
-		TaskItem,
-		FolderItem
+		FinanceItem,
+		newsItem
 	},
     computed: {
-		...mapState('tasks', ['tasks']),
+		...mapState('finance', ['finance']),
 		...mapState('news', ['news']),
 	},
 }

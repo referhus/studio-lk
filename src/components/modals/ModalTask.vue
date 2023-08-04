@@ -85,7 +85,7 @@ export default {
     },
     methods: {
         ...mapMutations('modal', ['closeModal']),
-        ...mapMutations('tasks', ['addTask', 'setTask']),
+        ...mapMutations('finance', ['addTask', 'setTask']),
         ...mapMutations('notification', ['setNotification', 'closeNotification']),
 
         handlerBtn() {

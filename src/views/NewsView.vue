@@ -2,40 +2,13 @@
     <section class="container">
         <div class="container-head">
             <h1>Новости</h1>
-            <!-- <button-cmp 
-				icon="add"
-				border
-				@event="handlerAdd"
-			></button-cmp> -->
         </div>
-        <!-- <form 
-            class="news-form"
-            v-if="show"
-            @submit.prevent="handlerBtn"
-        >
-            <input 
-                v-model="folder.name"
-                type="text" 
-                placeholder="название"
-                autofocus
-            >
-            <input 
-                type="color" 
-                v-model="folder.color"
-            >
-            <button-cmp 
-                type="submit"
-                text="создать"
-				border
-                @event="handlerBtn"
-			></button-cmp>
-        </form> -->
         <div class="news cards">
-            <folder-item
+            <news-item
                 v-for="item in news" 
                 :key="item.id"
                 :item="item"
-            ></folder-item>
+            ></news-item>
         </div>
     </section>
 </template>
@@ -43,7 +16,7 @@
 
 import { mapState } from 'vuex';
 // import ButtonCmp from '@/components/ButtonCmp';
-import FolderItem from '@/components/FolderItem';
+import newsItem from '@/components/newsItem';
 
 export default {
 	name: 'newsView',
@@ -58,7 +31,7 @@ export default {
 	},
 	components: {
         // ButtonCmp,
-        FolderItem
+        newsItem
 	},
 	computed: {
 		...mapState('news', ['news'])

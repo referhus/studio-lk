@@ -1,4 +1,4 @@
-import tasks from './modules/tasks';
+import finance from './modules/finance';
 import news from './modules/news';
 import modal from './modules/modal';
 import notification from './modules/notification';
@@ -9,7 +9,7 @@ import { createStore } from 'vuex'
 export default createStore({
     // plugins: [
     //     createPersistedState({
-    //         paths: ['tasks', 'folders']
+    //         paths: ['finance', 'folders']
     //     })
     // ],
     state: {
@@ -21,7 +21,7 @@ export default createStore({
     actions: {
     },
     modules: {
-        tasks,
+        finance,
         news,
         modal,
         notification

@@ -24,7 +24,7 @@ import { hexToRGB } from '@/utils/hexToRGB';
 import ButtonCmp from './ButtonCmp.vue';
 
 export default {
-    name: 'folder-item',
+    name: 'news-item',
     props: {
         item: {
             type: Object,
