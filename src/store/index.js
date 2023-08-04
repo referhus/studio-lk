@@ -1,0 +1,29 @@
+import tasks from './modules/tasks';
+import news from './modules/news';
+import modal from './modules/modal';
+import notification from './modules/notification';
+// import createPersistedState from 'vuex-persistedstate';
+
+import { createStore } from 'vuex'
+
+export default createStore({
+    // plugins: [
+    //     createPersistedState({
+    //         paths: ['tasks', 'folders']
+    //     })
+    // ],
+    state: {
+    },
+    getters: {
+    },
+    mutations: {
+    },
+    actions: {
+    },
+    modules: {
+        tasks,
+        news,
+        modal,
+        notification
+    },
+})
