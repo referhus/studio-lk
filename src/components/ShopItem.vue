@@ -46,6 +46,4 @@ export default {
 </template>
 
 <style lang="sass">
-.v-card__underlay
-  display: none !important
 </style>
