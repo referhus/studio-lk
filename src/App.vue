@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <header-cmp></header-cmp>
       <main class="main">
           <side-menu></side-menu>
           <router-view/>
@@ -15,12 +16,14 @@ import ModalCmp from './components/modals/ModalCmp.vue';
 import SideMenu from './components/SideMenu.vue';
 import NotificationCmp from './components/NotificationCmp.vue';
 import toiletBlock from './components/toiletBlock.vue';
+import HeaderCmp from "@/components/HeaderCmp.vue";
 export default {
   data() {
       return {
       };
   },
   components: {
+    HeaderCmp,
       ModalCmp,
       SideMenu,
       toiletBlock,
@@ -33,7 +36,7 @@ export default {
 <style lang="sass">
 @import "@/assets/styles/params"
 
-* 
+*
   font-family: Avenir, Helvetica, Arial, sans-serif
   font-size: 16px
   color: #4F4F4F
@@ -47,7 +50,7 @@ export default {
 body
   width: 100%
 
-a 
+a
   text-decoration: none
 
 input, textarea
@@ -93,7 +96,7 @@ textarea
       padding: 0 16px
       grid-template-columns: 85px 1fr 170px
 
-.container 
+.container
   grid-area: area-content
   width: 100%
   display: flex
@@ -103,8 +106,8 @@ textarea
   background: #F9F8FF
   border-right: 1px solid #E6E4F0
   border-left: 1px solid #E6E4F0
-  &-head 
-      background: #F9F8FF	
+  &-head
+      background: #F9F8FF
       position: sticky
       top: 0
       padding: 10px 0
@@ -113,7 +116,7 @@ textarea
       justify-content: space-between
       gap: 10px
       z-index: 1
-  &-block 
+  &-block
       display: flex
       flex-direction: column
       gap: 20px
@@ -123,7 +126,7 @@ textarea
   flex-wrap: wrap
   gap: 16px
 
-.item 
+.item
   transition: .3s
   cursor: pointer
   height: max-content
@@ -134,13 +137,13 @@ textarea
       &:before
           background: rgba(242, 241, 243, 0.7) !important
           border-bottom-color: rgba(242, 241, 243, 0.7) !important
-      
-  &-name 
+
+  &-name
       white-space: nowrap
       overflow: hidden
       text-overflow: ellipsis
 
-  &-date  
+  &-date
       font-size: 12px
       color: #A3A3A3
       pointer-events: none
@@ -150,7 +153,7 @@ textarea
   color: #A3A3A3
   opacity: 0.6
   transition: .3s
-  &:hover 
+  &:hover
       opacity: 1
 
 </style>
