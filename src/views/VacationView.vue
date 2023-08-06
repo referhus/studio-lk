@@ -34,8 +34,8 @@
             </thead>
             <tbody>
                 <tr
-                v-for="item in search"
-                :key="item.name"
+                    v-for="item in search"
+                    :key="item.name"
                 >
                 <td>{{ item.name }}</td>
                 <td>{{ item.vacation }}</td>
@@ -51,7 +51,7 @@ import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: "financeView",
-  data() {
+  data: () => {
     return {
         input: '',
         search: []
@@ -83,6 +83,5 @@ export default {
 	padding: 20px
 	display: flex
 	justify-content: space-between
-
     
 </style>

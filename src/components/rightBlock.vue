@@ -31,8 +31,8 @@ import { mapState } from 'vuex';
 import newsItem from '@/components/newsItem';
 
 export default {
-    name: 'toilet-block',
-    data() {
+    name: 'right-block',
+    data: () => {
         return {
             status: 'свободно',
         }
@@ -43,12 +43,12 @@ export default {
     components: {
         newsItem
     },
-    watch: {
-    },
     methods: {
         click() {
             if (this.status === 'свободно') {
                 this.status = 'занято'
+            } else {
+                this.status = 'свободно'
             }
         }
     },

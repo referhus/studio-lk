@@ -97,7 +97,7 @@
 
 export default {
   name: 'financeView',
-  data() {
+  data: () => {
     return {
       dialog: false,
       dialog1: false,

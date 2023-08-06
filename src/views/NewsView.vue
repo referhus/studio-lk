@@ -19,10 +19,6 @@ import newsItem from '@/components/newsItem';
 
 export default {
 	name: 'newsView',
-	data() {
-		return {
-		}
-	},
 	components: {
         newsItem
 	},

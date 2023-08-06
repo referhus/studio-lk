@@ -1,30 +1,23 @@
 <template>
   <div id="app">
       <header-cmp></header-cmp>
-      <main class="main" :class="{_fill: $route.name !== 'home'}">
+      <main class="main v-container" :class="{_fill: $route.name !== 'home'}">
           <side-menu></side-menu>
           <router-view/>
           <right-block v-if="$route.name === 'home'"></right-block>
-          <notification-cmp/>
       </main>
   </div>
 </template>
 
 <script>
 import SideMenu from './components/SideMenu.vue';
-import NotificationCmp from './components/NotificationCmp.vue';
 import HeaderCmp from "@/components/HeaderCmp.vue";
 import rightBlock from './components/rightBlock.vue';
 export default {
-  data() {
-      return {
-      };
-  },
   components: {
     HeaderCmp,
     SideMenu,
     rightBlock,
-    NotificationCmp
   },
 }
 

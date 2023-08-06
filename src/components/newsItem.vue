@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
     name: 'news-item',
     props: {
@@ -27,20 +25,6 @@ export default {
             type: Object
         },
     },
-    data() {
-        return {
-        }
-    },
-    components: {
-    },
-    computed: {
-        ...mapState('finance', ['finance']),
-    },
-    methods: {
-    },
-    mounted() {
-        this.count
-    }
 }
 </script>
 

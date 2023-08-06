@@ -1,7 +1,3 @@
-<script setup>
-import ShopItem from "@/components/ShopItem.vue";
-</script>
-
 <template>
   <section class="container">
     <div class="container-head">
@@ -17,11 +13,8 @@ import ShopItem from "@/components/ShopItem.vue";
   </section>
 </template>
 
-<style scoped lang="sass">
-
-</style>
-
 <script>
+import ShopItem from "@/components/ShopItem.vue";
 export default {
   data: () => ({
     items: [
@@ -51,5 +44,8 @@ export default {
       },
     ],
   }),
+  components: {
+    ShopItem
+  }
 }
 </script>

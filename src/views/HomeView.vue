@@ -158,7 +158,7 @@ export default {
     name: 'HomeView',
 	components: {
 	},
-    data() {
+    data: () => {
         return {
             tab: 'all',
             input: '',
@@ -175,7 +175,6 @@ export default {
         }
     },
     computed: {
-		...mapState('finance', ['finance']),
 		...mapState('news', ['news']),
         ...mapState('employees', ['employees']),
         ...mapGetters('employees', ['getEmployeesByName']),

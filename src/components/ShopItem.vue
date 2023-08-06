@@ -1,13 +1,3 @@
-<script>
-export default {
-  props: ['item'],
-  data () {
-    return {
-      dialog: false,
-    }
-  }
-}
-</script>
 <template>
   <v-card class="d-flex flex-column pa-5 justify-space-between align-center" style="width: calc((100% - 16px * 3) / 4)" height="300px">
     <h2 class="mb-5">
@@ -44,6 +34,17 @@ export default {
 
   </v-card>
 </template>
+
+<script>
+export default {
+  props: ['item'],
+  data: () => {
+    return {
+      dialog: false,
+    }
+  }
+}
+</script>
 
 <style lang="sass">
 </style>
